@@ -1,10 +1,13 @@
-# Node.js template
+# Playwright template
 
-This is a Node.js project.
+This is a Playwright project.
 
-Add your [configuration](https://codesandbox.io/docs/projects/learn/setting-up/tasks) to optimize it for [CodeSandbox](https://codesandbox.io/p/dashboard).
+# Local Setup
 
-## Resources
-
-- [CodeSandbox — Docs](https://codesandbox.io/docs/learn)
-- [CodeSandbox — Discord](https://discord.gg/Ggarp3pX5H)
+```
+- Clone this project
+- Run `npm install`
+- Run `npx playwright install`
+- Run `npx playwright install-deps`
+- Run `npm run test-ct`
+```
