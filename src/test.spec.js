@@ -24,10 +24,10 @@ test.describe("InputAndButton Component", () => {
     await expect(input).toBeFocused();
     await page.keyboard.press("Tab");
     await expect(button).toBeFocused();
-
-    // // Tab again to focus the button element
-    // await page.keyboard.press("Tab");
-    // activeElement = await page.evaluate(() => document.activeElement?.tagName);
-    // expect(activeElement).toBe("BUTTON");
+    const body = page.locator('body');
+    // set tabIndex to body to make it focusable
+    await body?.evaluate((body) => (body.tabIndex = 0));
+    await page.keyboard.press("Tab");
+    await expect(await body.evaluate((body) => document.activeElement === body)).toBeTruthy();
   });
 });
