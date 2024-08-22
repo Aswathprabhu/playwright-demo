@@ -16,7 +16,6 @@ test.describe("InputAndButton Component", () => {
         onInputChange={() => ({})}
       />
     );
-
     const input = component.locator("input");
     const button = component.locator("button");
     // Tab to focus the input element
@@ -24,10 +23,7 @@ test.describe("InputAndButton Component", () => {
     await expect(input).toBeFocused();
     await page.keyboard.press("Tab");
     await expect(button).toBeFocused();
-    const body = page.locator('body');
-    // set tabIndex to body to make it focusable
-    await body?.evaluate((body) => (body.tabIndex = 0));
     await page.keyboard.press("Tab");
-    await expect(await body.evaluate((body) => document.activeElement === body)).toBeTruthy();
+    await expect(page.locator("body")).toBeFocused();
   });
 });
